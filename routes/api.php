@@ -14,5 +14,23 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
+
+Route::get('/redirect', function () {
+  $query = http_build_query([
+    'client_id' => 'client-id',
+    'redirect_uri' => 'http://example.com/callback',
+    'response_type' => 'code',
+    'scope' => '',
+  ]);
+
+});
+
+  Route::group(['namespace' => 'Api'], function () {
+    Route::post('/login', 'UserController@login');
+  });
+
+  Route::group(['middleware' => 'auth:api', 'namespace' => 'api'], function() {
+    Route::get('details', 'UserController@details');
+  });
