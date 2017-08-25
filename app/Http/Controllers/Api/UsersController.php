@@ -35,6 +35,7 @@ class UsersController extends Controller
     if ($validator->fails()) {
       return response()->json(['error'=>$validator->errors()], 401);
     }
+    dd($request->all());
     $data = $request->all();
     $data['password']=bcrypt($data['password']);
     $data['pid'] = 0;
