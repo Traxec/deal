@@ -27,6 +27,7 @@ class UsersController extends Controller
 
   public function store(Request $request)
   {
+    dd($request->all());
     $validator = Validator::make($request->all(),[
       'phone'      => 'required|regex:/^1[34578][0-9]{9}$/',
       'password'   => 'required',
