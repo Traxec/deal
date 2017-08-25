@@ -43,9 +43,9 @@ class UsersController extends Controller
 
     // $user = User::create($data);
     $user = User::create($data);
+    dd($user);
     $success['token'] =  $user->createToken('MyApp')->accessToken;
     $success['id'] =  $user->id;
-    dd($success);
     return response()->json(['success'=>$success], $this->successStatus);
 
   }
