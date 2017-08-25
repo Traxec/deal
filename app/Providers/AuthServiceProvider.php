@@ -28,10 +28,10 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Passport::routes(); // 注册passport路由
-
-        //令牌的有效期
-        Passport::tokensExpireIn(Carbon::now()->addDays(15));
-
-        Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
+        //
+        // //令牌的有效期
+        // Passport::tokensExpireIn(Carbon::now()->addDays(15));
+        //
+        // Passport::refreshTokensExpireIn(Carbon::now()->addDays(30));
     }
 }
