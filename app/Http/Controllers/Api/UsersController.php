@@ -40,7 +40,7 @@ class UsersController extends Controller
     $data['pid'] = 0;
     $data['path'] = 0;
     $data['status'] = 1;
-
+    dd($request->all());
     $user = User::create($data);
     $success['token'] =  $user->createToken('MyApp')->accessToken;
     $success['id'] =  $user->id;
